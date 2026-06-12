@@ -162,6 +162,7 @@
   .tg.art{background:#e6e8f7;color:#4a52a3}
   .tg.history{background:#e2eef0;color:#0d6b6e}
   .tg.water{background:#d8eef5;color:#2280a0}
+  .tg.class{background:#efe1f2;color:#834a96}
   .exp .explink{margin-top:11px;font-size:.82rem;font-weight:600;align-self:flex-start}
   .exp .explink::after{content:" ↗";font-size:.75rem}
 
@@ -747,18 +748,23 @@ vocab.forEach(g=>{
 });
 
 /* ---------- EXPERIENCES DATA ---------- */
-const interestNames = {party:"Parties", local:"Local life", food:"Food & cooking", art:"Art", history:"History", water:"Water & cenotes"};
+const interestNames = {party:"Parties", local:"Local life", food:"Food & cooking", art:"Art", history:"History", water:"Water & cenotes", class:"Class / workshop"};
 const experiences = [
   // Santo Domingo
   {place:"Santo Domingo", title:"Colonial Zone bar crawl", interests:["party"], desc:"Calle El Conde, rooftop drinks over Plaza España, and craft beer at Bárik. Walkable, lively, safe."},
   {place:"Santo Domingo", title:"Colmadón night at Parada 77", interests:["party","local"], desc:"A supersized colmado with live music and locals dancing in the street. Order a Presidente jumbo and join in."},
-  {place:"Santo Domingo", title:"Dominican cooking class", interests:["food","local"], desc:"Learn to cook la bandera, mangú and sancocho with a local cook. Book a private class or Airbnb experience ahead of time."},
+  {place:"Santo Domingo", title:"Dominican cooking class", interests:["class","food","local"], desc:"Learn to cook la bandera, mangú and sancocho with a local cook. Book a private class or Airbnb experience ahead of time."},
   {place:"Santo Domingo", title:"Mercado Modelo", interests:["local","art"], desc:"Crafts market for amber, larimar, mamajuana and woodwork — haggling expected. A pulse-check on everyday life."},
   {place:"Santo Domingo", title:"'Firsts of the Americas' history walk", interests:["history"], desc:"First cathedral (1540), first university (1538), first hospital ruins, first paved street — all in a few blocks."},
   {place:"Santo Domingo", title:"Museo de las Casas Reales", interests:["history"], desc:"The colonial-history museum inside the old royal courthouse — Spanish rule, shipwreck treasure, weaponry."},
   {place:"Santo Domingo", title:"Museo de Arte Moderno", interests:["art"], desc:"Four floors of modern Dominican art in the Plaza de la Cultura. The best art museum in the country."},
   {place:"Santo Domingo", title:"Faro a Colón", interests:["history","art"], desc:"A massive cross-shaped monument and mausoleum to Columbus — brutalist architecture and a lightshow across the sky."},
-  {place:"Santo Domingo", title:"Ceramics / pottery class", interests:["art","local"], desc:"Get your hands in the clay and make your own piece. Talleres Glass runs hand-building & glazing workshops right in the Zona Colonial (book via Instagram with Gina); Santo Barrro offers a ~2-hour studio session with materials included.", link:"https://www.santobarrro.com"},
+  {place:"Santo Domingo", title:"Ceramics / pottery class", interests:["class","art","local"], desc:"Get your hands in the clay and make your own piece. Talleres Glass runs hand-building & glazing workshops right in the Zona Colonial (book via Instagram with Gina); Santo Barrro offers a ~2-hour studio session with materials included.", link:"https://www.santobarrro.com"},
+  {place:"Santo Domingo", title:"Merengue & bachata class", interests:["class","party","local"], desc:"Learn the two national dances from a local instructor before Bonyé Sunday. Studios like Saoko Experience — or private teachers via GetYourGuide/Airbnb — run 1-hour beginner classes in English or Spanish.", link:"https://www.getyourguide.com/santo-domingo-l471/santo-domingo-bachata-or-salsa-dance-classes-t590116/"},
+  {place:"Santo Domingo", title:"Cigar-rolling workshop", interests:["class","local"], desc:"The DR is the world's #1 premium cigar producer. At the Don Lucas Cigar Factory you grade the leaves and roll your own under a master torcedor's eye — then keep what you make.", link:"https://www.google.com/search?q=Don+Lucas+Cigar+Factory+Santo+Domingo+rolling+workshop"},
+  {place:"Santo Domingo", title:"Bean-to-bar chocolate workshop", interests:["class","food","local"], desc:"Dominican cacao is world-class. At the Kahkow Experience in the Zona Colonial, roast, grind and mold your own chocolate bar from local beans.", link:"https://www.civitatis.com/en/santo-domingo/kahkow-experience-chocolate-workshop/"},
+  {place:"Santo Domingo · Villa Mella", title:"Afro-Dominican drumming (palos)", interests:["class","local","art"], desc:"In Villa Mella — home of the UNESCO-recognized Congos del Espíritu Santo — local brotherhoods share the palo drumming and chants at the African root of Dominican music. Arrange through a cultural guide.", link:"https://www.google.com/search?q=Villa+Mella+Congos+palos+Afro-Dominican+drumming+experience"},
+  {place:"Las Terrenas", title:"Dance class up north (Rubio Dance)", interests:["class","party","local"], desc:"On Route B: Rubio Dance in Las Terrenas is a well-loved spot for bachata, salsa and merengue lessons with patient local teachers — a fun rainy-afternoon plan.", link:"https://www.google.com/search?q=Rubio+Dance+Las+Terrenas+bachata+salsa+lessons"},
   // Saturday escape
   {place:"Saona Island", title:"Catamaran party boat", interests:["party"], desc:"Rum, merengue and dancing on the way out, then a stop at the natural pool sandbar. The classic DR beach party."},
   {place:"Altos de Chavón", title:"Artists' village + Design School", interests:["art"], desc:"A stone Mediterranean village with a Parsons-affiliated design school, working artisan studios and a Roman-style amphitheater."},
@@ -813,7 +819,7 @@ function renderExp(filter){
     return `<div class="exp ${show?'':'hide'}"><span class="place">${e.place}</span><h4>${e.title}</h4><p>${e.desc}</p><div class="tags">${tags}</div><a class="explink" href="${href}" target="_blank" rel="noopener">${label}</a></div>`;
   }).join('');
 }
-const filters = [['all','Everything'],['party','🎉 Parties'],['water','🌊 Water & cenotes'],['local','🤝 Local life'],['food','🍲 Food & cooking'],['art','🎨 Art'],['history','📜 History']];
+const filters = [['all','Everything'],['class','🎓 Classes & workshops'],['party','🎉 Parties'],['water','🌊 Water & cenotes'],['local','🤝 Local life'],['food','🍲 Food & cooking'],['art','🎨 Art'],['history','📜 History']];
 filterbar.innerHTML = filters.map((f,i)=>`<button class="chip ${i===0?'active':''}" data-f="${f[0]}">${f[1]}</button>`).join('');
 filterbar.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
   filterbar.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x===c));

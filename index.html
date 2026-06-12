@@ -96,6 +96,16 @@
   .flight .date{font-size:.9rem;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:12px;margin-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
   .flight .conf{font-weight:600;color:var(--ink)}
 
+  /* STAY */
+  .stay{display:flex;gap:18px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow-sm);margin-top:18px;flex-wrap:wrap}
+  .stay .pin{font-size:1.9rem;line-height:1}
+  .stay .si{flex:1;min-width:200px}
+  .stay .si .lbl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+  .stay .si h4{font-size:1.16rem;margin:3px 0 3px}
+  .stay .si p{font-size:.92rem;color:var(--ink-soft)}
+  .stay .mapbtn{flex:0 0 auto;background:var(--ocean);color:#fff;font-weight:600;font-size:.88rem;padding:11px 18px;border-radius:10px;white-space:nowrap}
+  .stay .mapbtn:hover{background:var(--ocean-deep)}
+
   /* ITINERARY */
   .daybar{display:flex;gap:10px;overflow-x:auto;padding:4px 0 14px;-webkit-overflow-scrolling:touch}
   .daybtn{flex:0 0 auto;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 15px;cursor:pointer;text-align:left;min-width:128px;transition:.18s;font-family:inherit}
@@ -302,6 +312,16 @@
     <div class="callout">
       <b>Heads up on baggage</b>
       Both fares include carry-on only — checked bags cost extra. The return is "Blue Basic," so seat selection is also paid. Since these are two separate bookings, a change to one doesn't affect the other.
+    </div>
+
+    <div class="stay">
+      <div class="pin">🏠</div>
+      <div class="si">
+        <div class="lbl">Home base · Santo Domingo (Fri–Mon)</div>
+        <h4>Zona Colonial · Calle Santomé</h4>
+        <p>Right in the heart of the Colonial Zone — walkable to the Catedral, Calle El Conde, Plaza España and Bonyé. The base for the first three nights before heading north.</p>
+      </div>
+      <a class="mapbtn" href="https://maps.app.goo.gl/RPqBpLq8eVr5UUqY7" target="_blank" rel="noopener">Open in Maps ↗</a>
     </div>
   </div>
 </section>
